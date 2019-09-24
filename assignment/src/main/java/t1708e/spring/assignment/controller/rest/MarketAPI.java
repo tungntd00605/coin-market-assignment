@@ -10,7 +10,7 @@ import t1708e.spring.assignment.service.MarketService;
 
 @RestController
 @RequestMapping(value = "/api/v1/markets")
-@CrossOrigin(value = "localhost:4200")
+@CrossOrigin
 public class MarketAPI {
     @Autowired
     private MarketService marketService;
@@ -21,7 +21,7 @@ public class MarketAPI {
     }
 
     @PostMapping
-    public ResponseEntity create(Market market){
+    public ResponseEntity create(@RequestBody Market market){
         if(market == null){
             return new ResponseEntity("nothing", HttpStatus.BAD_REQUEST);
         }

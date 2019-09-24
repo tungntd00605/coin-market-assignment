@@ -13,6 +13,7 @@ import {ProductModule} from './module/product/product.module';
 import {MyRouteModule} from './my-route/my-route.module';
 import {CoinModule} from './module/coin/coin.module';
 import {MarketModule} from './module/market/market.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {MarketModule} from './module/market/market.module';
     BrowserModule,
     CoinModule,
     MarketModule,
-    MyRouteModule
+    MyRouteModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

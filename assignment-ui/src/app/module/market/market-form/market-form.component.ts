@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import {Market} from '../../../entity/market';
 
 @Component({
   selector: 'app-market-form',
@@ -7,15 +8,24 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./market-form.component.css']
 })
 export class MarketFormComponent implements OnInit {
+  market: Market = new Market();
 
-  constructor() {
-    // profileForm = new FormGroup({
-    //   firstName: new FormControl(''),
-    //   lastName: new FormControl(''),
-    // });
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
   }
 
+  saveMarket() {
+    console.log('name ' + this.market.name);
+    console.log('description ' + this.market.description);
+    console.log(this.market);
+    this.http.post<Market>('http://localhost:8080/api/v1/markets', this.market)
+      .subscribe((resp) => {
+          console.log(resp);
+        },
+        (error) => {
+          console.log(error);
+        });
+  }
 }

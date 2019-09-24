@@ -9,7 +9,7 @@ import t1708e.spring.assignment.service.CoinService;
 
 @RestController
 @RequestMapping(value = "/api/v1/coins")
-@CrossOrigin(value = "localhost:4200")
+@CrossOrigin
 public class CoinAPI {
     @Autowired
     private CoinService coinService;
@@ -20,7 +20,7 @@ public class CoinAPI {
     }
 
     @PostMapping
-    public ResponseEntity create(Coin coin){
+    public ResponseEntity create(@RequestBody Coin coin){
         Coin savedCoin = coinService.store(coin);
         return new ResponseEntity(savedCoin, HttpStatus.OK);
     }

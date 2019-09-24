@@ -1,13 +1,13 @@
 <h3>Market create form</h3>
 
-<form>
+<form (ngSubmit)="saveMarket()" #marketForm="ngForm" >
   <div class="form-group">
     <label>Market name</label>
-    <input type="text" class="form-control" placeholder="Enter name">
+    <input type="text" name="name" [(ngModel)]="market.name" class="form-control" placeholder="Enter name">
   </div>
   <div class="form-group">
     <label>Description</label>
-    <input type="text" class="form-control" placeholder="Description">
+    <input type="text" name="description" [(ngModel)]="market.description" class="form-control" placeholder="Description">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Save</button>
 </form>
