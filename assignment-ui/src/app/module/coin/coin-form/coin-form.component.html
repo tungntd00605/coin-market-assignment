@@ -1,1 +1,27 @@
-<p>coin-form works!</p>
+<h3>Coin create form</h3>
+
+<form (ngSubmit)="saveCoin()" #coinForm="ngForm" >
+  <div class="form-group">
+    <label>Coin name</label>
+    <input type="text" name="name" [(ngModel)]="coin.name" class="form-control" placeholder="Enter name">
+  </div>
+  <div class="form-group">
+    <label>Base Asset</label>
+    <input type="text" name="baseAsset" [(ngModel)]="coin.baseAsset" class="form-control" placeholder="Description">
+  </div>
+  <div class="form-group">
+    <label>Quote Asset</label>
+    <input type="text" name="quoteAsset" [(ngModel)]="coin.quoteAsset" class="form-control" placeholder="Description">
+  </div>
+  <div class="form-group">
+    <label>Volumn 24</label>
+    <input type="text" name="volumn24h" [(ngModel)]="coin.volumn24h" class="form-control" placeholder="Description">
+  </div>
+  <div class="form-group">
+    <label for="marketList">Market</label>
+    <select name="marketId" [(ngModel)]="marketId" class="form-control" id="marketList">
+      <option *ngFor="let market of markets" [ngValue]="market.id">{{ market.name }}</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>

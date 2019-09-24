@@ -1,1 +1,7 @@
-<p>market-list works!</p>
+<h3>Market List</h3>
+
+<ul>
+  <li *ngFor="let market of markets">
+    <span>Name: {{ market.name }}</span> - <span>Description: {{ market.description }}</span>
+  </li>
+</ul>

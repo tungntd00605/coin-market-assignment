@@ -17,9 +17,6 @@ export class MarketFormComponent implements OnInit {
   }
 
   saveMarket() {
-    console.log('name ' + this.market.name);
-    console.log('description ' + this.market.description);
-    console.log(this.market);
     this.http.post<Market>('http://localhost:8080/api/v1/markets', this.market)
       .subscribe((resp) => {
           console.log(resp);

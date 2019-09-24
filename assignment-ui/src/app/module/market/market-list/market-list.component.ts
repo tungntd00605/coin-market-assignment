@@ -13,9 +13,10 @@ export class MarketListComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get<Market>('http://localhost:8080/api/v1/markets')
-      .subscribe((resp) => {
+    this.http.get('http://localhost:8080/api/v1/markets')
+      .subscribe((resp: any) => {
           console.log(resp);
+          resp.forEach( e => {this.markets.push(e); });
         },
         (error) => {
           console.log(error);

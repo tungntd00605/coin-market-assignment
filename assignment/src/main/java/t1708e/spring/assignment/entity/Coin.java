@@ -1,5 +1,8 @@
 package t1708e.spring.assignment.entity;
 
+import t1708e.spring.assignment.dto.CoinDTO;
+import t1708e.spring.assignment.util.ObjectUtil;
+
 import javax.persistence.*;
 import java.util.Calendar;
 
@@ -21,6 +24,13 @@ public class Coin {
     private int status;
 
     public Coin() {
+        this.createdAt = Calendar.getInstance().getTimeInMillis();
+        this.updatedAt = Calendar.getInstance().getTimeInMillis();
+        this.status = 1;
+    }
+
+    public Coin(CoinDTO coinDTO) {
+        ObjectUtil.cloneObject(this, coinDTO);
         this.createdAt = Calendar.getInstance().getTimeInMillis();
         this.updatedAt = Calendar.getInstance().getTimeInMillis();
         this.status = 1;

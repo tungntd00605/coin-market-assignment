@@ -1,6 +1,7 @@
 package t1708e.spring.assignment.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class Market {
     private String name;
     private String description;
     @OneToMany(mappedBy = "market", cascade = CascadeType.ALL)
-    private List<Coin> coins;
+    private List<Coin> coins = new ArrayList<>();
     private long createdAt;
     private long updatedAt;
     private int status;
@@ -69,5 +70,20 @@ public class Market {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public List<Coin> getCoins() {
+        return coins;
+    }
+
+    public void setCoins(List<Coin> coins) {
+        this.coins = coins;
+    }
+
+    public void addCoin(Coin coin){
+        if(this.coins == null){
+            this.coins = new ArrayList<>();
+        }
+        this.coins.add(coin);
     }
 }

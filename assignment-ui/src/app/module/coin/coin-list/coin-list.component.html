@@ -1,1 +1,23 @@
-<p>coin-list works!</p>
+<h3>Coin List</h3>
+
+<div class="row">
+  <div class="input-group col-4 mb-3">
+    <input type="text" class="form-control" placeholder="Coin name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button">Search</button>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="form-group">
+      <select [(ngModel)]="marketId" class="form-control" id="marketList">
+        <option *ngFor="let market of markets" [ngValue]="market.id">{{ market.name }}</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<ul>
+  <li *ngFor="let coin of coins">
+    <span>Name: {{ coin.name }}</span>
+  </li>
+</ul>
